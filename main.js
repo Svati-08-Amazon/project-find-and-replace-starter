@@ -22,34 +22,22 @@ function getCellElements(currentRowElement) {
 // YOUR CODE GOES HERE
 
 replaceAllButton.addEventListener("click", function () {
-  let findValue = findInput.Value;
-  let replaceValue = replaceInput.value;
+  findValue = findInput.value;
+  replaceValue = replaceInput.value;
 
-  for (let m = 0; m < rowElements.length; m++) {
-    let cells = getCellElements(rowElements[m]);
-    // console.log(cells);
-
-    for (let s = 0; s < cells.length; s++) {
-      console.log(cells[s].innerHTML);
-
-      var str =
-        "full name, company, mailing address, city, country, state/region,country";
-      var n = str.includes("fullName");
-      console.log(m.innerHTML);
+  for (let a = 0; a < rowElements.length; a++) {
+    let cells = getCellElements(rowElements[a]);
+    for (let b = 0; b < cells.length; b++) {
+      console.log(cells[b].innerHTML);
+      if (cells[b].innerHTML.includes(findValue)) {
+        cells[b].innerHTML = cells[b].innerHTML.replace(
+          findValue,
+          replaceValue
+        );
+      }
     }
-    function myfunction() {
-      var str = document.getElementById("demo").innerHTML;
-      var res = str.replace("findInput", "replaceInput", function (x) {
-        return x.toUpperCase();
-      });
-      document.getElementById("demo").innerHTML = res;
-    }
-
-    // var res = str.replace("findInput", "replaceInput");
-    //console.log(res.innerHTML);
   }
 });
-// loop over rawElements
 
 // One last thing: dedicate very careful attention to using variables and
 // naming them accurately.
